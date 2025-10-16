@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { Star } from 'lucide-react';
+import { ShoppingCart, Star } from 'lucide-react';
 import Image from 'next/image';
 import useStore from '@/store/useStore';
 
@@ -64,15 +64,15 @@ export default function ProductItem({
             />
          </div>
 
-         <div className="p-4">
-            <div className="flex items-start justify-between gap-2">
-               <h3 className="text-lg font-semibold text-gray-800 mt-1 mb-2">
+         <div className=" p-[10px] sm:p-4">
+            <div className="flex flex-col sm:flex-row items-start justify-between sm:gap-2">
+               <h3 className="text-[16px] mt-0 mb-0 sm:text-lg font-semibold text-gray-800 sm:mt-1 sm:mb-2">
                   {title}
                </h3>
 
                {/* Dynamic Star Component Display */}
                {rating > 0 && (
-                  <div className="flex items-center gap-0.5 mt-1 flex-shrink-0">
+                  <div className="mt-0 flex items-center gap-0 sm:gap-0.5 sm:mt-1 flex-shrink-0">
                      {renderStars(rating)}
                      {/* Display the numerical rating for precision */}
                      <span className="text-xs font-medium text-gray-500 ml-1">
@@ -89,15 +89,15 @@ export default function ProductItem({
             )}
 
             <div className="flex items-center justify-between mt-4">
-               <span className="text-xl font-bold text-gray-900">
+               <span className="text-[16px] sm:text-xl font-bold text-gray-900">
                   ₦{price.toFixed(2)}
                </span>
 
                <button
                   onClick={() => addItemToCart({ id, title, price, image })}
-                  className="bg-purple-900 text-white px-4 py-2 rounded-full font-medium shadow-md hover:bg-blue-700 transition-colors duration-200 transform hover:scale-105 cursor-pointer"
+                  className="bg-purple-900 text-white px-2 py-1 rounded-full font-medium shadow-md hover:bg-blue-700 transition-colors duration-200 transform hover:scale-105 cursor-pointer"
                >
-                  Add to Cart
+                  <ShoppingCart />
                </button>
             </div>
          </div>
